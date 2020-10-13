@@ -44,4 +44,22 @@ const messages = [
     from: 'sam',
     type: 'choice'
   }
-]
+];
+
+// Document ready
+$(function() {
+
+  // Add each message sequentially after a delay
+  var delay = 1000;
+  $.each(messages, function(key, value) {
+    setTimeout(function() {
+      console.log(value.msg);
+      let msgBubbleHTML = '<div class="msg from-' + value.from + '"><p>' + value.msg + '</p></div>'
+      console.log(msgBubbleHTML);
+      $("#msg-area").append(msgBubbleHTML);
+    }, delay)
+    delay += 1000;
+
+  })
+
+})
