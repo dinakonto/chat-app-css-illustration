@@ -1,3 +1,18 @@
+// MESSAGE ANIMATION STEPS
+//
+// Other person:
+// 1. Indicator appears (same height, color etc as message will be)
+//    - Moves older messages up to make space
+// 2. Wait for a moment
+// 3. Indicator is replaced by the message
+//
+// You:
+// 1. Open keyboard
+// 2. Type, input field expands up to make room if necessary
+// 3. Tap send
+// 4. Message moves up into its spot, keyboard stays open
+//    - Moves older messages up to make space
+
 // STYLEGUIDE
 $text-subhead: hsl(276, 100%, 81%)
 $text-sam: hsl(276, 55%, 52%)
@@ -22,6 +37,9 @@ $font-weight-bold: 700
 /*
  * BASE STYLES
  */
+*
+  box-sizing: border-box
+  transition: all 0.2s ease-in-out
 
 html,
 body
@@ -34,7 +52,31 @@ body
   font-family: $font-stack
   font-size: $font-size
 
+// PHONE
+.phone
+  border: 10px solid $col-white
+  max-width: 250px
+  margin: 0 auto
+  border-radius: 30px
+  position: relative
+  height: 505px
+  /* Add vendor prefixes */
+  box-shadow: 0px 10px 20px rgba(0,0,0,0.1)
+.phone:after
+  position: absolute
+  content: ""
+  width: 130px
+  height: 20px
+  border-radius: 0 0 15px 15px
+  background: $col-white
+  top: -1px
+  left: calc(50% - (130px / 2))
+
 // MESSAGES
+#msg-area
+  height: 365px
+  padding: 10px
+  width: 100%
 #msg-area .msg-list
   list-style-type: none
   padding-left: 0
@@ -53,6 +95,9 @@ body
 .msg.from-me
   background: $col-white
   border-bottom-right-radius: 2px
+
+
+
 
 // TYPING INDICATOR
 // Thanks https://codepen.io/fusco/pen/XbpaYv
