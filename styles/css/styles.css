@@ -26,6 +26,8 @@ body {
   border-radius: 30px;
   position: relative;
   height: 505px;
+  overflow: hidden;
+  font-size: 0.55em;
   /* Add vendor prefixes */
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
 }
@@ -35,10 +37,63 @@ body {
   content: "";
   width: 130px;
   height: 20px;
-  border-radius: 0 0 15px 15px;
+  border-radius: 0 0 calc(30px / 2) calc(30px / 2);
   background: white;
   top: -1px;
   left: calc(50% - (130px / 2));
+}
+
+.phone-ui {
+  position: relative;
+  height: 100%;
+}
+
+.phone--header {
+  background: linear-gradient(to left, #CE41FF, #8F3CFE);
+  border-radius: 20px 20px 6px 6px;
+  padding: 30px 12px;
+  color: white;
+}
+
+.chat-avatar {
+  height: 22px;
+}
+
+.phone--input {
+  background: white;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  border-radius: 100px;
+  width: calc(100% - 20px);
+  padding: 12px 20px;
+}
+
+.phone--input:before {
+  position: absolute;
+  content: "";
+  height: 24px;
+  width: 24px;
+  border-radius: 100px;
+  background: #3e2753;
+  right: 5px;
+  bottom: 5px;
+}
+
+.phone--input:after {
+  position: absolute;
+  content: "";
+  height: 5px;
+  width: 5px;
+  border-top: 3px solid white;
+  border-right: 3px solid white;
+  right: 14px;
+  bottom: 13px;
+  transform: rotate(45deg);
+}
+
+.phone--input .placeholder-text {
+  color: #c6cacd;
 }
 
 #msg-area {
@@ -50,27 +105,37 @@ body {
 #msg-area .msg-list {
   list-style-type: none;
   padding-left: 0;
+  margin: 0;
 }
 
 .msg {
-  padding: 5px;
-  background: #d89eff;
+  border: 1px solid red;
   margin-bottom: 10px;
-  border-radius: 10px;
+  display: flex;
 }
 
-.msg p {
-  font-size: 0.5em;
+.msg-content {
+  padding: 5px 8px;
+  background: #d89eff;
+  border-radius: 10px;
+  max-width: 66%;
+}
+
+.msg-content p {
   line-height: 1.5;
   margin: 0;
 }
 
-.msg.from-sam {
+.msg.from-sam .msg-content {
   background: #d89eff;
   border-bottom-left-radius: 2px;
 }
 
 .msg.from-me {
+  justify-content: flex-end;
+}
+
+.msg.from-me .msg-content {
   background: white;
   border-bottom-right-radius: 2px;
 }

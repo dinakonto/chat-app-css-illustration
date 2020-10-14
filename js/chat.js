@@ -13,10 +13,14 @@ $(function() {
       type: 'text'
     },
     {
-      msg: '3 images go here',
+      msg: '',
+      src: [
+        '../../images/dog-image-1.jpg',
+        '../../images/dog-image-2.jpg',
+        '../../images/dog-image-3.jpg'
+      ],
       from: 'me',
       type: 'image'
-
     },
     {
       msg: 'Here are a few pictures. She’s a happy girl!',
@@ -50,19 +54,13 @@ $(function() {
   ];
 
 
-  // Add each message sequentially after typing indicator and delay
-  const typingIndicator = '<div class="typing-indicator"><span></span><span></span><span></span></div>'
-  var delay = 1000;
-  $.each(messages, function(key, value) {
+  let delay = 1000;
 
+  messages.forEach(function(value, index) {
     setTimeout(function() {
-      setTimeout(function() {
-        $("#msg-area .msg-list").append(typingIndicator)
-      }, 500);
-      $(".typing-indicator").remove();
-      let msgBubbleHTML = '<li class="msg from-' + value.from + '"><p>' + value.msg + '</p></div>'
-      $("#msg-area .msg-list").append(msgBubbleHTML);
-    }, delay)
+      let msgBubbleHTML = '<li class="msg from-' + value.from + ' type-' + value.type + '"><div class="msg-content"><p>' + value.msg + '</p></div></div>'
+      document.querySelector("#msg-area .msg-list").innerHTML += msgBubbleHTML;
+    }, delay);
     delay += 1000;
-  })
+  });
 })
