@@ -71,13 +71,19 @@ $(function() {
 
       } else {
         // Add text (Text, choice)
-        msgBubbleHTML += '<p>' + msg.msg + '</p>'
+        msgBubbleHTML += '<p>' + msg.msg
+        if (msg.type === 'choice') {
+          // Add price (choice)
+          msgBubbleHTML += '<span class="price">$' + msg.price + '</span>'
+        }
+        msgBubbleHTML += '</p>'
       }
 
       // End block (All)
       msgBubbleHTML += '</div></div>'
       // Add to DOM (All)
       document.querySelector("#msg-area .msg-list").innerHTML += msgBubbleHTML;
+    // }, 1);
     }, delay);
     delay += 1000;
   });

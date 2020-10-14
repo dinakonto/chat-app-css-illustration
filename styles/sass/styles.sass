@@ -25,6 +25,7 @@ $col-white: hsl(0, 0%, 100%)
 $col-app-bg: hsl(270, 20%, 96%)
 $col-btn: hsl(271, 36%, 24%)
 $col-radio: hsl(289, 100%, 72%)
+$col-sam-bg: #E7D7F4
 
 $col-gradient: #CE41FF, #8F3CFE
 
@@ -63,7 +64,7 @@ body
   position: relative
   height: 505px
   overflow: hidden
-  font-size: 0.55em
+  font-size: 0.5em
   /* Add vendor prefixes */
   box-shadow: 0px 10px 20px rgba(0,0,0,0.1)
 .phone:after
@@ -83,10 +84,62 @@ body
 .phone--header
   background: linear-gradient(to left, $col-gradient)
   border-radius: 20px 20px 6px 6px
-  padding: 30px 12px
+  padding: 30px 12px 12px 12px
   color: $col-white
+  display: flex
+  align-items: center
 .chat-avatar
-  height: 22px
+  position: relative
+  margin-left: 20px
+  margin-right: 10px
+.chat-avatar::before
+  content: ""
+  position: absolute
+  height: 6px
+  width: 6px
+  border-bottom: 2px solid $col-white
+  border-left: 2px solid $col-white
+  margin-left: -12px
+  transform: rotate(45deg)
+  top: 8px
+.chat-avatar img
+  height: 24px
+  border-radius: 100px
+  border: 1px solid $col-white
+  position: relative
+.chat-info
+  width: 100%
+  position: relative
+.chat-info p
+  margin-bottom: 0
+p.chat-name
+  font-size: 1.2em
+  margin-top: 0
+p.chat-status
+  font-size: 0.9em
+  font-weight: $font-weight-light
+  color: $text-subhead
+  margin-top: 3px
+.chat-menu,
+.chat-menu::before,
+.chat-menu::after
+  background: $col-white
+  border-radius: 100px
+  height: 2px
+  width: 2px
+.chat-menu::before,
+.chat-menu::after
+  position: absolute
+  content: ""
+.chat-menu
+  position: relative
+  margin-right: 5px
+.chat-menu:before
+  top: -4px
+.chat-menu:after
+  bottom: -4px
+
+
 // INPUT
 .phone--input
   background: $col-white
@@ -128,28 +181,66 @@ body
   padding-left: 0
   margin: 0
 .msg
-  border: 1px solid red
-  margin-bottom: 10px
+  margin-bottom: 8px
   display: flex
 .msg-content
   padding: 5px 8px
   background: $text-subhead
   border-radius: 10px
-  max-width: 66%
+  max-width: 60%
 .msg-content p
   line-height: 1.5
   margin: 0
 .msg.from-sam .msg-content
-  background: $text-subhead
+  background: $col-sam-bg
   border-bottom-left-radius: 2px
+  color: $text-sam
 .msg.from-me
   justify-content: flex-end
 .msg.from-me .msg-content
   background: $col-white
   border-bottom-right-radius: 2px
-
-
-
+  color: $text-me
+.msg.from-me:not(.type-image) .msg-content
+  /* Add vendor prefixes */
+  box-shadow: 0px 5px 5px rgba(0,0,0,0.05)
+.msg-content img
+  max-width: 40px
+  border-radius: 10px
+.msg-content img:not(:last-of-type)
+  margin-right: 8px
+.msg.from-me.type-image .msg-content
+  max-width: 80%
+  background: transparent
+  padding: 0
+.msg-list > .from-me
+  margin-top: 15px
+.msg-list > .from-me ~ .from-me
+  margin-top: 0
+.msg:nth-child(5)
+  margin-bottom: 15px
+.msg.type-choice .msg-content
+  max-width: 100%
+  width: 80%
+  color: $col-white
+  background: linear-gradient(to right, $col-gradient)
+  position: relative
+  padding: 10px 10px 10px 32px
+.msg.type-choice .msg-content::before
+  position: absolute
+  content: ""
+  height: 10px
+  width: 10px
+  border: 1px solid $col-radio
+  border-radius: 100px
+  margin-left: -22px
+  margin-top: -1px
+.msg.type-choice .msg-content .price
+  position: absolute
+  right: 15px
+  font-size: 1.6em
+  margin-top: -4px
+  font-weight: $font-weight-bold
 
 
 
