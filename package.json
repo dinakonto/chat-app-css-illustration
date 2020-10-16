@@ -8,5 +8,8 @@
     "sass": "sass --watch styles/sass:styles/css"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "animejs": "^3.2.1"
+  }
 }
