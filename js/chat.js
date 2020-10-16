@@ -1,6 +1,3 @@
-// TODO
-// - Pull message data from a json file
-
 // Document ready
 document.addEventListener("DOMContentLoaded", function(){
 
