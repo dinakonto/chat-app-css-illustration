@@ -1,7 +1,6 @@
 // Document ready
 document.addEventListener("DOMContentLoaded", function(){
 
-
   const messages = [
     {
       msg: 'That sounds great. I’d be happy with that.',
@@ -62,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function(){
       ypos: 322
     }
   ];
-
+  let delay = 1000;
 
   // Animate
   function animStart(ypos) {
@@ -75,8 +74,6 @@ document.addEventListener("DOMContentLoaded", function(){
   }
 
   // Loop through messages and display each one
-  let delay = 1000;
-
   function startUI() {
     console.log('start ui');
     let i;
