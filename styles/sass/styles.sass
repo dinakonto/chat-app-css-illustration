@@ -71,7 +71,8 @@ p
   height: 505px
   overflow: hidden
   font-size: 0.5em
-  /* Add vendor prefixes */
+  -moz-box-shadow: 0px 10px 20px rgba(0,0,0,0.1)
+  -webkit-box-shadow: 0px 10px 20px rgba(0,0,0,0.1)
   box-shadow: 0px 10px 20px rgba(0,0,0,0.1)
 .phone:after
   position: absolute
@@ -215,7 +216,8 @@ p.chat-status
   border-bottom-right-radius: 2px
   color: $text-me
 .msg.from-me:not(.type-image) .msg-content
-  /* Add vendor prefixes */
+  -moz-box-shadow: 0px 5px 5px rgba(0,0,0,0.05)
+  -webkit-box-shadow: 0px 5px 5px rgba(0,0,0,0.05)
   box-shadow: 0px 5px 5px rgba(0,0,0,0.05)
 .msg-content img
   max-width: 40px
