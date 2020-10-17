@@ -8,7 +8,7 @@ This is my response to a front-end coding challenge from [Frontend Mentor](https
 I plan to take on most, if not all, of the free challenges in order from easiest ('Newbie') to hardest ('Advanced').
 
 ## The challenge
-Challenge #14<br/>
+Challenge #17<br/>
 Difficulty: Intermediate
 
 This challenge was to build out a feature illustration using HTML & CSS and get it looking as close to the design as possible.
